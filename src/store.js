@@ -1,12 +1,20 @@
-import { createStore } from 'redux';
+import {
+  combineReducers
+} from 'redux-immutable';
 
-const reducer = (state = 0, action) => {
+import {
+  createStore
+} from 'redux';
+
+import { Map } from 'immutable';
+
+const reducer = (state = Map({ count: 0 }), action) => {
     switch (action.type) {
         case 'INCREMENT':
-            return state + 1;
+            return state.set('count', state.get('count') + 1);
     }
     
     return state;
 }
 
-export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(combineReducers({ reducer }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

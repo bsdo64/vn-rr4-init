@@ -20,7 +20,7 @@ class Page2 extends Component {
   render() {
     return <div>
       Page 2!
-      <button onClick={this.props.increment}>Increment {this.props.state}</button>
+      <button onClick={this.props.increment}>Increment {this.props.state.get('reducer').get('count')}</button>
     </div>
   }
 }
