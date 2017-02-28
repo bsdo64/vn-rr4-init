@@ -4,26 +4,23 @@
     },
     "dependencies": {
         "immutable": "^3.8.1",
-        "react": "~15.4.2",
-        "react-dom": "~15.4.2",
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2",
         "react-helmet": "^4.0.0",
         "react-redux": "~5.0.2",
-        "react-router-dom": "4.0.0-beta.6",
-        "redux": "~3.6.0",
+        "react-router-dom": "^4.0.0-beta.6",
+        "redux": "^3.6.0",
         "redux-immutable": "^3.1.0"
     },
     "devDependencies": {
-        "babel-core": "~6.23.1",
-        "babel-loader": "~6.3.0",
-        "babel-preset-es2015": "~6.22.0",
-        "babel-preset-react": "~6.23.0",
-        "babel-preset-stage-2": "~6.22.0",
-        "react-hot-loader": "3.0.0-beta.6",
-        "webpack": "~2.2.1",
+        "babel-core": "^6.23.1",
+        "babel-loader": "^6.3.0",
+        "babel-preset-es2015": "^6.22.0",
+        "babel-preset-react": "^6.23.0",
+        "babel-preset-stage-2": "^6.22.0",
+        "react-hot-loader": "^3.0.0-beta.6",
+        "webpack": "^2.2.1",
         "webpack-dev-server": "^2.4.1"
-    },
-    "engines": {
-        "node": "6.9.1"
     },
     "name": "vn-rr4-init",
     "version": "0.0.1",
