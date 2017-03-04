@@ -21,6 +21,6 @@ app.get('*', (req, res, next) => {
         res.write(file);
         res.end();
     })
-})
+});
 
 app.listen(8080);
