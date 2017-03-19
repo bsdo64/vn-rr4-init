@@ -1,11 +1,11 @@
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var webpack = require('webpack');
-var webpackConfig = require('../webpack.config.js');
-var compiler = webpack(webpackConfig);
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config.js');
+const compiler = webpack(webpackConfig);
 
-var app = express();
+const app = express();
 
 app.use(require("webpack-dev-middleware")(compiler, {
     states: {

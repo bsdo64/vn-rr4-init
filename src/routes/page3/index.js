@@ -19,7 +19,7 @@ class Page3 extends Component {
 
   render() {
     return <div>
-      Page 3!
+      Page 3
 
       {
         this.props.state.get('posts').map((v, i) => {
