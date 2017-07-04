@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 const render = (Component) => {
-  ReactDOM.render(<Provider store={store}>
+  ReactDOM.render(
+  <Provider store={store}>
     <Component />
   </Provider>,
     document.getElementById('root')
@@ -14,8 +15,9 @@ const render = (Component) => {
 
 render(RootApp);
 
-module.hot.accept('./RootApp', () => {
-  render(RootApp)
-});
-
+if (module.hot) {
+  module.hot.accept('./RootApp', () => {
+    render(RootApp)
+  });
+}
 

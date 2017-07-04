@@ -1,19 +1,32 @@
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import Helmet from 'react-helmet';
 import React, { Component } from 'react';
-import Page1 from './components/Page1'
-import Page2 from './components/Page2'
+import Loader from './components/Loader';
+import loadPage1 from 'bundle-loader?lazy!./components/Page1'
+import loadPage2 from 'bundle-loader?lazy!./components/Page2'
 
-const Test = () => {
+const Page1 = (props) => {
     return (
-        <div>
-            <Route path="/page1" component={Page1} />
-            <Route path="/page2" component={Page2} />
-        </div>
+        <Loader load={loadPage1}>
+            {Page1 => <Page1 {...props}/>}
+        </Loader>
     )
 }
 
-export default class extends Component {
+
+const Page2 = (props) => {
+    return (
+        <Loader load={loadPage2}>
+            {Page2 => <Page2 {...props}/>}
+        </Loader>
+    )
+}
+
+export default class RootApp extends Component {
+    // componentDidMount() {
+    //     loadPage1(() => {})
+    //     loadPage2(() => {})
+    // }
     render() {
         return (
         <BrowserRouter>
@@ -21,11 +34,20 @@ export default class extends Component {
             <Helmet
                 title="Venacle"
             />
-            <span>App</span>
-            <Link to={'/page1'}>page1</Link>
-            <Link to={'/page2'}>page3</Link>
+            <div>
+                <Link to={'/'}>App</Link>
+            </div>
+            <div>
+                <Link to={'/page1'}>page1</Link>
+            </div>
+            <div>
+                <Link to={'/page2'}>page2</Link>
+            </div>
             
-            <Test />
+            <div>
+                <Route path="/page1" component={Page1} />
+                <Route path="/page2" component={Page2} />
+            </div>
         </div>
         </BrowserRouter>
         )

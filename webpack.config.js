@@ -20,7 +20,7 @@ module.exports = {
     // the entry point of our app
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     // the output bundle
 
     path: resolve(__dirname, 'dist'),
@@ -62,6 +62,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html'
+    }),
+
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify("development")
+      }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common' // Specify the common bundle's name.
     }),
 
     new webpack.HotModuleReplacementPlugin(),
