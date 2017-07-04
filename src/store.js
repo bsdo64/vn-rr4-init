@@ -6,7 +6,7 @@ import {
   createStore
 } from 'redux';
 
-import { Map } from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 
 const reducer = (state = Map({ count: 0 }), action) => {
     switch (action.type) {
@@ -15,6 +15,20 @@ const reducer = (state = Map({ count: 0 }), action) => {
     }
     
     return state;
-}
+};
 
-export default createStore(combineReducers({ reducer }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const posts = (state = List([]), action) => {
+  switch (action.type) {
+    case '@@SET_POSTS':
+      return fromJS(action.payload);
+  }
+
+  return state;
+};
+
+export default createStore(
+  combineReducers({
+    reducer,
+    posts,
+  }),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
